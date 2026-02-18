@@ -19,6 +19,7 @@ alias ga="git add"
 alias gs="git status"
 alias gp="git push"
 alias gc="git commit -m"
+alias gpl="git pull"
 
 # Guide used: https://thevaluable.dev/zsh-install-configure-mouseless/
 export EDITOR="nvim"

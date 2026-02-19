@@ -11,6 +11,8 @@ zstyle :compinstall filename '/home/peroxidize/.zshrc'
 autoload -Uz compinit
 # End of lines added by compinstall
 
+
+# Aliases
 alias sdu="sudo dnf update"
 alias sdi="sudo dnf install"
 alias dca="dnf clean all" 
@@ -21,6 +23,7 @@ alias gp="git push"
 alias gpo="git push origin"
 alias gc="git commit -m"
 alias gpl="git pull"
+
 
 # Guide used: https://thevaluable.dev/zsh-install-configure-mouseless/
 export EDITOR="nvim"
@@ -36,7 +39,7 @@ bindkey -M vicmd v edit-command-line
 source ~/.zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.zsh/plugins/zsh-you-should-use/zsh-you-should-use.plugin.zsh
 source ~/.zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-# source ~/.zsh/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+source ~/.zsh/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 
 
 if [[ "${widgets[zle-keymap-select]#user:}" == "starship_zle-keymap-select" || \

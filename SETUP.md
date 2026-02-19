@@ -13,7 +13,7 @@ sudo dnf swap ffmpeg-free ffmpeg --allowerasing && sudo dnf swap mesa-va-drivers
 
 3. Install applications
 ```bash
-sudo dnf copr enable scottames/ghostty && sudo dnf install google-chrome-stable discord easyeffects mpv qbittorrent steam lutris gsettings zsh neovim gnome-tweaks google-noto-fonts-all util-linux fzf zoxide keyd ghostty
+sudo dnf copr enable scottames/ghostty && sudo dnf install google-chrome-stable discord easyeffects mpv qbittorrent steam lutris gsettings zsh neovim gnome-tweaks google-noto-fonts-all util-linux fzf zoxide keyd ghostty gcc make ripgrep fd-find unzip
 ```
 
 4. Install gnome extension-manager and download the following extensions:

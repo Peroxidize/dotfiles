@@ -6,14 +6,14 @@ My Fedora Gnome setup
 sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 ```
 
-2. Install multimedia and hardware codecs
-```bash
-sudo dnf swap ffmpeg-free ffmpeg --allowerasing && sudo dnf swap mesa-va-drivers mesa-va-drivers-freeworld && sudo dnf swap mesa-va-drivers.i686 mesa-va-drivers-freeworld.i686
-```
-
-3. Install applications
+2. Install applications
 ```bash
 sudo dnf copr enable scottames/ghostty && sudo dnf install google-chrome-stable discord easyeffects mpv qbittorrent steam lutris gsettings zsh neovim gnome-tweaks google-noto-fonts-all util-linux fzf zoxide keyd ghostty gcc make ripgrep fd-find unzip
+```
+
+3. Install multimedia and hardware codecs
+```bash
+sudo dnf swap ffmpeg-free ffmpeg --allowerasing && sudo dnf update @multimedia --setopt="install_weak_deps=False" --exclude=PackageKit-gstreamer-plugin&& sudo dnf swap mesa-va-drivers mesa-va-drivers-freeworld
 ```
 
 4. Install gnome extension-manager and download the following extensions:

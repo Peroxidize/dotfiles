@@ -8,7 +8,7 @@ sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-releas
 
 2. Install applications
 ```bash
-sudo dnf copr enable scottames/ghostty && sudo dnf install google-chrome-stable discord easyeffects mpv qbittorrent steam lutris gsettings zsh neovim gnome-tweaks google-noto-fonts-all util-linux fzf zoxide keyd ghostty gcc make ripgrep fd-find unzip jetbrains-mono-nl-fonts
+sudo dnf copr enable scottames/ghostty && sudo dnf install google-chrome-stable discord easyeffects mpv qbittorrent steam lutris gsettings zsh neovim gnome-tweaks google-noto-fonts-all util-linux fzf zoxide keyd ghostty gcc make ripgrep fd-find unzip jetbrains-mono-nl-fonts npm pnpm
 ```
 
 3. Install multimedia and hardware codecs
@@ -26,6 +26,7 @@ sudo dnf swap ffmpeg-free ffmpeg --allowerasing && sudo dnf update @multimedia -
 - Tactile
 - Wallpaper Slideshow
 - Speedinator
+- Picture in Picture
 
 5. Load dconf settings
 ```bash

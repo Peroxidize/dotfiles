@@ -61,6 +61,5 @@ require("oil").setup()
 require("mini.pick").setup()
 require("nvim-treesitter").install({ "typescript", "javascript", "css", "html" })
 require("blink.cmp").setup({
-    dependencies = { 'rafamadriz/friendly-snippets' },
     fuzzy = { implementation = "lua" }
 })

@@ -24,10 +24,6 @@
       "rev": "a95dc67ecff78de138543a20c20f29f47111b122",
       "src": "https://github.com/nvim-mini/mini.nvim"
     },
-    "mini.pairs": {
-      "rev": "b7fde3719340946feb75017ef9d75edebdeb0566",
-      "src": "https://github.com/nvim-mini/mini.pairs"
-    },
     "nvim": {
       "rev": "0a5de4da015a175f416d6ef1eda84661623e0500",
       "src": "https://github.com/catppuccin/nvim"
@@ -43,10 +39,6 @@
     "oil.nvim": {
       "rev": "0fcc83805ad11cf714a949c98c605ed717e0b83e",
       "src": "https://github.com/stevearc/oil.nvim"
-    },
-    "snacks.nvim": {
-      "rev": "fe7cfe9800a182274d0f868a74b7263b8c0c020b",
-      "src": "https://github.com/folke/snacks.nvim"
     },
     "ts-error-translator.nvim": {
       "rev": "558abff11b9e8f4cefc0de09df780c56841c7a4b",

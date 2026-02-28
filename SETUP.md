@@ -13,7 +13,7 @@ sudo dnf copr enable scottames/ghostty && sudo dnf install google-chrome-stable 
 
 3. Install multimedia and hardware codecs
 ```bash
-sudo dnf swap ffmpeg-free ffmpeg --allowerasing && sudo dnf update @multimedia --setopt="install_weak_deps=False" --exclude=PackageKit-gstreamer-plugin&& sudo dnf swap mesa-va-drivers mesa-va-drivers-freeworld
+sudo dnf swap ffmpeg-free ffmpeg --allowerasing && sudo dnf update @multimedia --setopt="install_weak_deps=False" --exclude=PackageKit-gstreamer-plugin && sudo dnf swap mesa-va-drivers mesa-va-drivers-freeworld
 ```
 
 4. Install gnome extension-manager and download the following extensions:

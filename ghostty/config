@@ -49,3 +49,4 @@
 # resize-overlay-duration = 4s 200ms
 
 keybind = ctrl+[=text:\x1b
+theme = Catppuccin Frappe

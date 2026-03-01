@@ -8,6 +8,10 @@
       "rev": "6cd7280adead7f586db6fccbd15d2cac7e2188b9",
       "src": "https://github.com/rafamadriz/friendly-snippets"
     },
+    "hardtime.nvim": {
+      "rev": "b4e431934af1fe224a3a801f632c008278cb7628",
+      "src": "https://github.com/m4xshen/hardtime.nvim"
+    },
     "mason-lspconfig.nvim": {
       "rev": "9e3a9fe4f1f9f34b19307a2695dee8fbbd0be776",
       "src": "https://github.com/mason-org/mason-lspconfig.nvim"

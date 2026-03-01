@@ -46,6 +46,7 @@ vim.pack.add({
     { src = "https://github.com/nvim-treesitter/nvim-treesitter" },
     { src = "https://github.com/saghen/blink.cmp" },
     { src = "https://github.com/rafamadriz/friendly-snippets" },
+    { src = "https://github.com/m4xshen/hardtime.nvim" },
 })
 
 vim.cmd.colorscheme "catppuccin-frappe"
@@ -63,3 +64,4 @@ require("nvim-treesitter").install({ "typescript", "javascript", "css", "html" }
 require("blink.cmp").setup({
     fuzzy = { implementation = "lua" }
 })
+require("hardtime").setup()

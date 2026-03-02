@@ -39,7 +39,7 @@ bindkey -M vicmd v edit-command-line
 source ~/.zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.zsh/plugins/zsh-you-should-use/zsh-you-should-use.plugin.zsh
 source ~/.zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source ~/.zsh/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+source ~/.zsh/plugins/fzf-tab/fzf-tab.plugin.zsh
 
 
 if [[ "${widgets[zle-keymap-select]#user:}" == "starship_zle-keymap-select" || \

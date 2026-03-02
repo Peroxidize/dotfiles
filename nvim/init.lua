@@ -2,8 +2,6 @@ vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 vim.g.have_nerd_font = true
 
-vim.cmd(":hi statusline guibg=None")
-
 vim.schedule(function() vim.o.clipboard = 'unnamedplus' end)
 
 vim.opt.number = true
@@ -43,25 +41,37 @@ vim.pack.add({
     { src = "https://github.com/dmmulroy/ts-error-translator.nvim" },
     { src = "https://github.com/stevearc/oil.nvim" },
     { src = "https://github.com/nvim-mini/mini.nvim" },
-    { src = "https://github.com/nvim-treesitter/nvim-treesitter" },
     { src = "https://github.com/saghen/blink.cmp" },
     { src = "https://github.com/rafamadriz/friendly-snippets" },
     { src = "https://github.com/m4xshen/hardtime.nvim" },
+    {
+        src = "https://github.com/nvim-treesitter/nvim-treesitter",
+        version = "master"
+    },
 })
-
-vim.cmd.colorscheme "catppuccin-frappe"
 
 require("mason").setup()
 require("mason-lspconfig").setup()
 require("mason-tool-installer").setup({
-    ensure_installed = { "lua_ls", "ts_ls" }
+    ensure_installed = { "lua_ls", "ts_ls", "eslint_d" }
 })
 require("mini.pairs").setup()
 require("ts-error-translator").setup()
 require("oil").setup()
 require("mini.pick").setup()
-require("nvim-treesitter").install({ "typescript", "javascript", "css", "html" })
 require("blink.cmp").setup({
     fuzzy = { implementation = "lua" }
 })
 require("hardtime").setup()
+---@diagnostic disable-next-line: missing-fields
+require("nvim-treesitter.configs").setup {
+    -- A list of parser names, or "all" (the listed parsers MUST always be installed)
+    ensure_installed = { "c", "lua", "vim", "vimdoc", "markdown", "markdown_inline", "javascript", "typescript", "css" },
+    highlight = {
+        enable = true,
+        additional_vim_regex_highlighting = false,
+    },
+}
+
+vim.cmd.colorscheme "catppuccin-frappe"
+vim.cmd(":hi statusline guibg=None")

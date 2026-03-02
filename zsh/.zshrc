@@ -47,6 +47,7 @@ if [[ "${widgets[zle-keymap-select]#user:}" == "starship_zle-keymap-select" || \
     zle -N zle-keymap-select "";
 fi
 
+bindkey '^ ' autosuggest-accept
 
 compinit
 eval "$(zoxide init zsh)"

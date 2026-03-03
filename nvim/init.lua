@@ -48,6 +48,7 @@ vim.pack.add({
         src = "https://github.com/nvim-treesitter/nvim-treesitter",
         version = "master"
     },
+    { src = "https://github.com/windwp/nvim-ts-autotag" },
 })
 
 require("mason").setup()
@@ -72,6 +73,7 @@ require("nvim-treesitter.configs").setup {
         additional_vim_regex_highlighting = false,
     },
 }
+require("nvim-ts-autotag").setup()
 
 vim.cmd.colorscheme "catppuccin-frappe"
 vim.cmd(":hi statusline guibg=None")

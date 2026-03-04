@@ -29,6 +29,8 @@ vim.keymap.set("n", "<leader>o", ":Oil<CR>")
 vim.keymap.set("n", "<leader>f", ":Pick files<CR>")
 vim.keymap.set("n", "<leader>g", ":Pick grep_live<CR>")
 vim.keymap.set("n", "<leader>h", ":Pick help<CR>")
+vim.keymap.set('n', '<CR>', 'm`o<Esc>``')
+vim.keymap.set('n', '<S-CR>', 'm`O<Esc>``')
 
 vim.diagnostic.config({ virtual_text = true })
 

@@ -34,6 +34,12 @@ vim.keymap.set('n', '<S-CR>', 'm`O<Esc>``')
 
 vim.diagnostic.config({ virtual_text = true })
 
+vim.api.nvim_create_autocmd("TextYankPost", {
+    callback = function()
+        vim.highlight.on_yank()
+    end,
+})
+
 vim.pack.add({
     { src = "https://github.com/catppuccin/nvim" },
     { src = "https://github.com/mason-org/mason.nvim" },

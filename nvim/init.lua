@@ -24,6 +24,7 @@ vim.opt.splitbelow = true
 vim.opt.smarttab = true
 vim.opt.smartindent = true
 vim.opt.autoindent = true
+vim.opt.updatetime = 250
 
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 vim.keymap.set('n', '<leader>q', ':quit<CR>')

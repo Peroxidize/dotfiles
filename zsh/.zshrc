@@ -23,6 +23,7 @@ alias gp="git push"
 alias gpo="git push origin"
 alias gc="git commit -m"
 alias gpl="git pull"
+alias ..="cd .."
 
 
 # Guide used: https://thevaluable.dev/zsh-install-configure-mouseless/

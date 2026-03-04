@@ -23,7 +23,6 @@ vim.opt.winborder = "rounded"
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 vim.keymap.set('n', '<leader>q', ':quit<CR>')
 vim.keymap.set('n', '<leader>w', ':write<CR>')
-vim.keymap.set('n', '<leader>y', '0v$hy')
 vim.keymap.set('n', '<leader>lf', vim.lsp.buf.format)
 vim.keymap.set("n", "<leader>o", ":Oil<CR>")
 vim.keymap.set("n", "<leader>f", ":Pick files<CR>")
@@ -31,6 +30,8 @@ vim.keymap.set("n", "<leader>g", ":Pick grep_live<CR>")
 vim.keymap.set("n", "<leader>h", ":Pick help<CR>")
 vim.keymap.set('n', '<CR>', 'm`o<Esc>``')
 vim.keymap.set('n', '<S-CR>', 'm`O<Esc>``')
+vim.keymap.set('n', '<leader>yy', '0yg_')
+vim.keymap.set('n', '<leader>dd', '0dg_')
 
 vim.diagnostic.config({ virtual_text = true })
 

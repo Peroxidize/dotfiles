@@ -68,7 +68,6 @@ vim.pack.add({
     { src = "https://github.com/dmmulroy/ts-error-translator.nvim" },
     { src = "https://github.com/stevearc/oil.nvim" },
     { src = "https://github.com/nvim-mini/mini.nvim" },
-    { src = "https://github.com/rafamadriz/friendly-snippets" },
     {
         src = "https://github.com/nvim-treesitter/nvim-treesitter",
         version = "master"

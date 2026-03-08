@@ -38,6 +38,7 @@ vim.keymap.set('n', '<S-CR>', 'm`O<Esc>``')
 vim.keymap.set('n', 'y', '"+y')
 vim.keymap.set('n', '<leader>y', '0yg_')
 vim.keymap.set('n', '<leader>d', '0dg_')
+vim.keymap.set('n', 'gd', '<C-]>')
 
 vim.diagnostic.config({ virtual_text = true })
 

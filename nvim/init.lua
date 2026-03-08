@@ -23,9 +23,11 @@ vim.opt.smarttab = true
 vim.opt.smartindent = true
 vim.opt.autoindent = true
 vim.opt.updatetime = 250
+vim.opt.completeopt = "fuzzy,menuone,noselect,popup"
 
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 vim.keymap.set('n', '<leader>q', ':quit<CR>')
+vim.keymap.set('n', '<leader><leader>q', ':quit!<CR>')
 vim.keymap.set('n', '<leader>w', ':write<CR>')
 vim.keymap.set('n', '<leader>lf', vim.lsp.buf.format)
 vim.keymap.set("n", "<leader>o", ":Oil<CR>")
@@ -35,8 +37,8 @@ vim.keymap.set("n", "<leader>h", ":Pick help<CR>")
 vim.keymap.set('n', '<CR>', 'm`o<Esc>``')
 vim.keymap.set('n', '<S-CR>', 'm`O<Esc>``')
 vim.keymap.set('n', 'y', '"+y')
-vim.keymap.set('n', '<leader>yy', '0yg_')
-vim.keymap.set('n', '<leader>dd', '0dg_')
+vim.keymap.set('n', '<leader>y', '0yg_')
+vim.keymap.set('n', '<leader>d', '0dg_')
 
 vim.diagnostic.config({ virtual_text = true })
 
@@ -66,7 +68,6 @@ vim.pack.add({
     { src = "https://github.com/dmmulroy/ts-error-translator.nvim" },
     { src = "https://github.com/stevearc/oil.nvim" },
     { src = "https://github.com/nvim-mini/mini.nvim" },
-    { src = "https://github.com/saghen/blink.cmp" },
     { src = "https://github.com/rafamadriz/friendly-snippets" },
     {
         src = "https://github.com/nvim-treesitter/nvim-treesitter",
@@ -84,9 +85,6 @@ require("mini.pairs").setup()
 require("ts-error-translator").setup()
 require("oil").setup()
 require("mini.pick").setup()
--- require("blink.cmp").setup({
---     fuzzy = { implementation = "lua" }
--- })
 ---@diagnostic disable-next-line: missing-fields
 require("nvim-treesitter.configs").setup {
     -- A list of parser names, or "all" (the listed parsers MUST always be installed)

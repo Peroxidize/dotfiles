@@ -2,8 +2,6 @@ vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 vim.g.have_nerd_font = true
 
-vim.schedule(function() vim.o.clipboard = 'unnamedplus' end)
-
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.wrap = false
@@ -36,6 +34,7 @@ vim.keymap.set("n", "<leader>g", ":Pick grep_live<CR>")
 vim.keymap.set("n", "<leader>h", ":Pick help<CR>")
 vim.keymap.set('n', '<CR>', 'm`o<Esc>``')
 vim.keymap.set('n', '<S-CR>', 'm`O<Esc>``')
+vim.keymap.set('n', 'y', '"+y')
 vim.keymap.set('n', '<leader>yy', '0yg_')
 vim.keymap.set('n', '<leader>dd', '0dg_')
 
@@ -69,7 +68,6 @@ vim.pack.add({
     { src = "https://github.com/nvim-mini/mini.nvim" },
     { src = "https://github.com/saghen/blink.cmp" },
     { src = "https://github.com/rafamadriz/friendly-snippets" },
-    { src = "https://github.com/m4xshen/hardtime.nvim" },
     {
         src = "https://github.com/nvim-treesitter/nvim-treesitter",
         version = "master"
@@ -86,10 +84,9 @@ require("mini.pairs").setup()
 require("ts-error-translator").setup()
 require("oil").setup()
 require("mini.pick").setup()
-require("blink.cmp").setup({
-    fuzzy = { implementation = "lua" }
-})
-require("hardtime").setup()
+-- require("blink.cmp").setup({
+--     fuzzy = { implementation = "lua" }
+-- })
 ---@diagnostic disable-next-line: missing-fields
 require("nvim-treesitter.configs").setup {
     -- A list of parser names, or "all" (the listed parsers MUST always be installed)

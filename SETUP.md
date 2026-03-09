@@ -25,7 +25,6 @@ sudo dnf swap ffmpeg-free ffmpeg --allowerasing && sudo dnf update @multimedia -
 - Switcher
 - Tactile
 - Wallpaper Slideshow
-- Speedinator
 - Picture in Picture
 
 5. Load dconf settings

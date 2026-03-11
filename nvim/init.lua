@@ -39,7 +39,7 @@ vim.keymap.set('v', 'y', '"+y')
 vim.keymap.set('n', '<leader>y', '_vg_"+y')
 vim.keymap.set('n', '<leader>d', '_vg_"+d')
 vim.keymap.set('n', 'gd', '<C-]>')
-vim.keymap.set('i', '<C-<leader>>', '<C-x><C-o><C-n><C-y>')
+vim.keymap.set('i', '<C- >', '<C-x><C-o>')
 
 vim.diagnostic.config({ virtual_text = true })
 

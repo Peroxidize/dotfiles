@@ -40,7 +40,6 @@ vim.keymap.set("v", "y", '"+y')
 vim.keymap.set("n", "<leader>y", '_vg_"+y')
 vim.keymap.set("n", "<leader>d", '_vg_"+d')
 vim.keymap.set("n", "gd", "<C-]>")
-vim.keymap.set("i", "<C- >", "<C-x><C-o>")
 vim.keymap.set("i", "<C-c>", "<Esc>")
 
 vim.diagnostic.config({ virtual_text = true })
@@ -77,6 +76,7 @@ vim.pack.add({
 	},
 	{ src = "https://github.com/windwp/nvim-ts-autotag" },
 	{ src = "https://github.com/stevearc/conform.nvim" },
+	{ src = "https://github.com/saghen/blink.cmp" },
 })
 
 require("mason").setup()
@@ -114,6 +114,10 @@ require("conform").setup({
 		-- These options will be passed to conform.format()
 		timeout_ms = 500,
 	},
+})
+require("blink.cmp").setup({
+	fuzzy = { implementation = "lua" },
+	completion = { menu = { auto_show = false } },
 })
 
 vim.cmd.colorscheme("catppuccin-frappe")

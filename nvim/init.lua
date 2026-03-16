@@ -77,6 +77,9 @@ vim.pack.add({
 	{ src = "https://github.com/windwp/nvim-ts-autotag" },
 	{ src = "https://github.com/stevearc/conform.nvim" },
 	{ src = "https://github.com/saghen/blink.cmp" },
+	{ src = "https://github.com/oysandvik94/curl.nvim" },
+	{ src = "https://github.com/nvim-lua/plenary.nvim" },
+	{ src = "https://github.com/vyfor/cord.nvim" },
 })
 
 require("mason").setup()
@@ -105,10 +108,12 @@ require("nvim-ts-autotag").setup()
 require("conform").setup({
 	formatters_by_ft = {
 		lua = { "stylua" },
-		javascript = { "prettierd", "prettier", stop_after_first = true },
-		typescript = { "prettierd", "prettier", stop_after_first = true },
-		javascriptreact = { "prettierd", "prettier", stop_after_first = true },
-		typescriptreact = { "prettierd", "prettier", stop_after_first = true },
+		javascript = { "prettierd" },
+		typescript = { "prettierd" },
+		javascriptreact = { "prettierd" },
+		typescriptreact = { "prettierd" },
+		json = { "prettierd" },
+		curl = { "prettierd" },
 	},
 	format_on_save = {
 		-- These options will be passed to conform.format()
@@ -119,6 +124,8 @@ require("blink.cmp").setup({
 	fuzzy = { implementation = "lua" },
 	completion = { menu = { auto_show = false } },
 })
+require("curl").setup({})
+require("cord")
 
 vim.cmd.colorscheme("catppuccin-frappe")
 vim.cmd(":hi statusline guibg=None")

@@ -41,6 +41,7 @@ vim.keymap.set("n", "<leader>y", '_vg_"+y')
 vim.keymap.set("n", "<leader>d", '_vg_"+d')
 vim.keymap.set("n", "gd", "<C-]>")
 vim.keymap.set("i", "<C-c>", "<Esc>")
+vim.keymap.set("n", "<leader>v", ":vsp<CR>")
 
 vim.diagnostic.config({ virtual_text = true })
 

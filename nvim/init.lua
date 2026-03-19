@@ -76,7 +76,7 @@ vim.pack.add({
 	},
 	{ src = "https://github.com/windwp/nvim-ts-autotag" },
 	{ src = "https://github.com/stevearc/conform.nvim" },
-	{ src = "https://github.com/saghen/blink.cmp" },
+	{ src = "https://github.com/saghen/blink.cmp", version = "v1.10.1" },
 	{ src = "https://github.com/oysandvik94/curl.nvim" },
 	{ src = "https://github.com/nvim-lua/plenary.nvim" },
 	{ src = "https://github.com/vyfor/cord.nvim" },
@@ -113,7 +113,6 @@ require("conform").setup({
 		javascriptreact = { "prettierd" },
 		typescriptreact = { "prettierd" },
 		json = { "prettierd" },
-		curl = { "prettierd" },
 	},
 	format_on_save = {
 		-- These options will be passed to conform.format()
@@ -121,7 +120,7 @@ require("conform").setup({
 	},
 })
 require("blink.cmp").setup({
-	fuzzy = { implementation = "lua" },
+	fuzzy = { implementation = "prefer_rust_with_warning" },
 	completion = { menu = { auto_show = false } },
 })
 require("curl").setup({})

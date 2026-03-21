@@ -23,7 +23,6 @@ vim.opt.smarttab = true
 vim.opt.smartindent = true
 vim.opt.autoindent = true
 vim.opt.updatetime = 250
-vim.opt.completeopt = "fuzzy,menuone,noselect,popup"
 
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 vim.keymap.set("n", "<leader>q", ":quit<CR>")
@@ -42,6 +41,8 @@ vim.keymap.set("n", "<leader>d", '_vg_"+d')
 vim.keymap.set("n", "gd", "<C-]>")
 vim.keymap.set("i", "<C-c>", "<Esc>")
 vim.keymap.set("n", "<leader>v", ":vsp<CR>")
+vim.keymap.set("n", "<leader>hh", ":vertical resize +15<CR>")
+vim.keymap.set("n", "<leader>ll", ":vertical resize -15<CR>")
 
 vim.diagnostic.config({ virtual_text = true })
 

@@ -48,83 +48,94 @@ vim.keymap.set("n", "<leader><leader>q", ":quit!<CR>")
 vim.diagnostic.config({ virtual_text = true })
 
 vim.api.nvim_create_autocmd("TextYankPost", {
-	callback = function()
-		vim.highlight.on_yank()
-	end,
+    callback = function()
+        vim.hl.on_yank()
+    end,
 })
 
 -- Restore cursor to file position in previous editing session
 vim.api.nvim_create_autocmd("BufReadPost", {
-	callback = function(args)
-		local mark = vim.api.nvim_buf_get_mark(args.buf, '"')
-		local line_count = vim.api.nvim_buf_line_count(args.buf)
-		if mark[1] > 0 and mark[1] <= line_count then
-			vim.cmd('normal! g`"zz')
-		end
-	end,
+    callback = function(args)
+        local mark = vim.api.nvim_buf_get_mark(args.buf, '"')
+        local line_count = vim.api.nvim_buf_line_count(args.buf)
+        if mark[1] > 0 and mark[1] <= line_count then
+            vim.cmd('normal! g`"zz')
+        end
+    end,
 })
 
 vim.pack.add({
-	{ src = "https://github.com/catppuccin/nvim" },
-	{ src = "https://github.com/mason-org/mason.nvim" },
-	{ src = "https://github.com/mason-org/mason-lspconfig.nvim" },
-	{ src = "https://github.com/neovim/nvim-lspconfig" },
-	{ src = "https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim" },
-	{ src = "https://github.com/dmmulroy/ts-error-translator.nvim" },
-	{ src = "https://github.com/stevearc/oil.nvim" },
-	{ src = "https://github.com/nvim-mini/mini.nvim" },
-	{
-		src = "https://github.com/nvim-treesitter/nvim-treesitter",
-		version = "master",
-	},
-	{ src = "https://github.com/windwp/nvim-ts-autotag" },
-	{ src = "https://github.com/stevearc/conform.nvim" },
-	{ src = "https://github.com/saghen/blink.cmp", version = "v1.10.1" },
-	{ src = "https://github.com/oysandvik94/curl.nvim" },
-	{ src = "https://github.com/nvim-lua/plenary.nvim" },
-	{ src = "https://github.com/vyfor/cord.nvim" },
+    { src = "https://github.com/catppuccin/nvim" },
+    { src = "https://github.com/mason-org/mason.nvim" },
+    { src = "https://github.com/mason-org/mason-lspconfig.nvim" },
+    { src = "https://github.com/neovim/nvim-lspconfig" },
+    { src = "https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim" },
+    { src = "https://github.com/dmmulroy/ts-error-translator.nvim" },
+    { src = "https://github.com/stevearc/oil.nvim" },
+    { src = "https://github.com/nvim-mini/mini.nvim" },
+    {
+        src = "https://github.com/nvim-treesitter/nvim-treesitter",
+        version = "master",
+    },
+    { src = "https://github.com/windwp/nvim-ts-autotag" },
+    { src = "https://github.com/stevearc/conform.nvim" },
+    { src = "https://github.com/saghen/blink.cmp", version = "v1.10.1" },
+    { src = "https://github.com/oysandvik94/curl.nvim" },
+    { src = "https://github.com/nvim-lua/plenary.nvim" },
+    { src = "https://github.com/vyfor/cord.nvim" },
 })
 
 require("mason").setup()
 require("mason-lspconfig").setup()
 require("mason-tool-installer").setup({
-	ensure_installed = { "lua_ls", "ts_ls", "eslint_d", "prettierd", "prettier", "stylua" },
+    ensure_installed = {
+        "lua_ls",
+        "ts_ls",
+        "eslint_d",
+        "prettierd",
+        "prettier",
+        "stylua",
+        "gh-actions-language-server",
+        "yaml-language-server",
+        "yamlfix",
+    },
 })
 require("mini.pairs").setup()
 require("ts-error-translator").setup()
 require("oil").setup({
-	view_options = {
-		show_hidden = true,
-	},
+    view_options = {
+        show_hidden = true,
+    },
 })
 require("mini.pick").setup()
 ---@diagnostic disable-next-line: missing-fields
 require("nvim-treesitter.configs").setup({
-	-- A list of parser names, or "all" (the listed parsers MUST always be installed)
-	ensure_installed = { "c", "lua", "vim", "vimdoc", "markdown", "markdown_inline", "javascript", "typescript", "css" },
-	highlight = {
-		enable = true,
-		additional_vim_regex_highlighting = false,
-	},
+    -- A list of parser names, or "all" (the listed parsers MUST always be installed)
+    ensure_installed = { "c", "lua", "vim", "vimdoc", "markdown", "markdown_inline", "javascript", "typescript", "css" },
+    highlight = {
+        enable = true,
+        additional_vim_regex_highlighting = false,
+    },
 })
 require("nvim-ts-autotag").setup()
 require("conform").setup({
-	formatters_by_ft = {
-		lua = { "stylua" },
-		javascript = { "prettierd" },
-		typescript = { "prettierd" },
-		javascriptreact = { "prettierd" },
-		typescriptreact = { "prettierd" },
-		json = { "prettierd" },
-	},
-	format_on_save = {
-		-- These options will be passed to conform.format()
-		timeout_ms = 500,
-	},
+    formatters_by_ft = {
+        lua = { "stylua" },
+        javascript = { "prettierd" },
+        typescript = { "prettierd" },
+        javascriptreact = { "prettierd" },
+        typescriptreact = { "prettierd" },
+        json = { "prettierd" },
+        yaml = { "yamlfix" },
+    },
+    format_on_save = {
+        -- These options will be passed to conform.format()
+        timeout_ms = 500,
+    },
 })
 require("blink.cmp").setup({
-	fuzzy = { implementation = "prefer_rust_with_warning" },
-	completion = { menu = { auto_show = false } },
+    fuzzy = { implementation = "prefer_rust_with_warning" },
+    completion = { menu = { auto_show = false } },
 })
 require("curl").setup({})
 require("cord")

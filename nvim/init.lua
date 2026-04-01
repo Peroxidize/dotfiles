@@ -44,6 +44,7 @@ vim.keymap.set("n", "<leader>v", ":vsp<CR>")
 vim.keymap.set("n", "<leader>hh", ":vertical resize +15<CR>")
 vim.keymap.set("n", "<leader>ll", ":vertical resize -15<CR>")
 vim.keymap.set("n", "<leader><leader>q", ":quit!<CR>")
+vim.keymap.set("n", "<leader>c", "aconsole.log();<ESC>hh")
 
 vim.diagnostic.config({ virtual_text = true })
 

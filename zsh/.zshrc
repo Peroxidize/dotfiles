@@ -25,6 +25,7 @@ alias gc="git commit -m"
 alias gpl="git pull"
 alias ..="cd .."
 
+export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
 
 # Guide used: https://thevaluable.dev/zsh-install-configure-mouseless/
 export EDITOR="nvim"

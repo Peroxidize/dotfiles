@@ -24,6 +24,7 @@ alias gpo="git push origin"
 alias gc="git commit -m"
 alias gpl="git pull"
 alias ..="cd .."
+alias docker="sudo docker"
 
 export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
 

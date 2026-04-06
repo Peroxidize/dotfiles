@@ -74,16 +74,13 @@ vim.pack.add({
     { src = "https://github.com/dmmulroy/ts-error-translator.nvim" },
     { src = "https://github.com/stevearc/oil.nvim" },
     { src = "https://github.com/nvim-mini/mini.nvim" },
-    {
-        src = "https://github.com/nvim-treesitter/nvim-treesitter",
-        version = "master",
-    },
     { src = "https://github.com/windwp/nvim-ts-autotag" },
     { src = "https://github.com/stevearc/conform.nvim" },
     { src = "https://github.com/saghen/blink.cmp", version = "v1.10.1" },
     { src = "https://github.com/oysandvik94/curl.nvim" },
     { src = "https://github.com/nvim-lua/plenary.nvim" },
     { src = "https://github.com/vyfor/cord.nvim" },
+    { src = "https://github.com/nvim-treesitter/nvim-treesitter", version = "main" },
 })
 
 require("mason").setup()
@@ -91,15 +88,17 @@ require("mason-lspconfig").setup()
 require("mason-tool-installer").setup({
     ensure_installed = {
         "lua_ls",
-        "ts_ls",
         "eslint_d",
         "prettierd",
         "prettier",
         "stylua",
         "gh-actions-language-server",
         "yaml-language-server",
-        "yamlfix",
         "docker-language-server",
+        "yamlfmt",
+        "oxlint",
+        "oxfmt",
+        "tsgo",
     },
 })
 require("mini.pairs").setup()
@@ -110,30 +109,19 @@ require("oil").setup({
     },
 })
 require("mini.pick").setup()
----@diagnostic disable-next-line: missing-fields
-require("nvim-treesitter.configs").setup({
-    -- A list of parser names, or "all" (the listed parsers MUST always be installed)
-    ensure_installed = { "c", "lua", "vim", "vimdoc", "markdown", "markdown_inline", "javascript", "typescript", "css" },
-    highlight = {
-        enable = true,
-        additional_vim_regex_highlighting = false,
-    },
-})
 require("nvim-ts-autotag").setup()
 require("conform").setup({
     formatters_by_ft = {
         lua = { "stylua" },
-        javascript = { "prettierd" },
-        typescript = { "prettierd" },
-        javascriptreact = { "prettierd" },
-        typescriptreact = { "prettierd" },
-        json = { "prettierd" },
-        yaml = { "yamlfix" },
+        javascript = { "oxfmt" },
+        typescript = { "oxfmt" },
+        javascriptreact = { "oxfmt" },
+        typescriptreact = { "oxfmt" },
+        json = { "oxfmt" },
+        yaml = { "oxfmt" },
+        vue = { "oxfmt" },
     },
-    format_on_save = {
-        -- These options will be passed to conform.format()
-        timeout_ms = 500,
-    },
+    format_on_save = {},
 })
 require("blink.cmp").setup({
     fuzzy = { implementation = "prefer_rust_with_warning" },
@@ -141,6 +129,38 @@ require("blink.cmp").setup({
 })
 require("curl").setup({})
 require("cord")
+
+local ts_parsers = {
+    "bash",
+    "json",
+    "yaml",
+    "lua",
+    "markdown",
+    "python",
+    "vim",
+    "vimdoc",
+    "javascript",
+    "typescript",
+}
+
+local nts = require("nvim-treesitter")
+nts.install(ts_parsers)
+vim.api.nvim_create_autocmd("PackChanged", {
+    callback = function()
+        nts.update()
+    end,
+})
+
+vim.api.nvim_create_autocmd("FileType", { -- enable treesitter highlighting and indents
+    callback = function(args)
+        local filetype = args.match
+        local lang = vim.treesitter.language.get_lang(filetype)
+        if vim.treesitter.language.add(lang) then
+            vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+            vim.treesitter.start()
+        end
+    end,
+})
 
 vim.cmd.colorscheme("catppuccin-frappe")
 vim.cmd(":hi statusline guibg=None")

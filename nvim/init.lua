@@ -141,6 +141,9 @@ local ts_parsers = {
     "vimdoc",
     "javascript",
     "typescript",
+    "html",
+    "css",
+    "tsx",
 }
 
 local nts = require("nvim-treesitter")

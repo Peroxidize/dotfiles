@@ -99,6 +99,10 @@ require("mason-tool-installer").setup({
         "oxlint",
         "oxfmt",
         "tsgo",
+        "vue_ls",
+        "tailwindcss",
+        "hls",
+        "ormolu",
     },
 })
 require("mini.pairs").setup()
@@ -113,13 +117,14 @@ require("nvim-ts-autotag").setup()
 require("conform").setup({
     formatters_by_ft = {
         lua = { "stylua" },
-        javascript = { "oxfmt" },
-        typescript = { "oxfmt" },
-        javascriptreact = { "oxfmt" },
-        typescriptreact = { "oxfmt" },
-        json = { "oxfmt" },
-        yaml = { "oxfmt" },
-        vue = { "oxfmt" },
+        javascript = { "prettierd" },
+        typescript = { "prettierd" },
+        javascriptreact = { "prettierd" },
+        typescriptreact = { "prettierd" },
+        json = { "prettierd" },
+        yaml = { "prettierd" },
+        vue = { "prettierd" },
+        haskell = { "ormolu" },
     },
     format_on_save = {},
 })

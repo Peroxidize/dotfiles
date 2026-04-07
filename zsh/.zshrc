@@ -63,3 +63,5 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
+
+[ -f "/home/peroxidize/.ghcup/env" ] && . "/home/peroxidize/.ghcup/env" # ghcup-env

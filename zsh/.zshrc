@@ -13,17 +13,6 @@ autoload -Uz compinit
 
 
 # Aliases
-alias sdu="sudo dnf update"
-alias sdi="sudo dnf install"
-alias dca="dnf clean all" 
-
-alias ga="git add"
-alias gs="git status"
-alias gp="git push"
-alias gpo="git push origin"
-alias gc="git commit -m"
-alias gpl="git pull"
-alias ..="cd .."
 alias docker="sudo docker"
 
 export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"

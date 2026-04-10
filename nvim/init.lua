@@ -45,6 +45,7 @@ vim.keymap.set("n", "<leader>hh", ":vertical resize +15<CR>")
 vim.keymap.set("n", "<leader>ll", ":vertical resize -15<CR>")
 vim.keymap.set("n", "<leader><leader>q", ":quit!<CR>")
 vim.keymap.set("n", "<leader>cc", "aconsole.log();<ESC>hh")
+vim.keymap.set("n", "<leader>r", ":restart<CR>")
 
 vim.diagnostic.config({ virtual_text = true })
 
@@ -81,6 +82,7 @@ vim.pack.add({
     { src = "https://github.com/nvim-lua/plenary.nvim" },
     { src = "https://github.com/vyfor/cord.nvim" },
     { src = "https://github.com/nvim-treesitter/nvim-treesitter", version = "main" },
+    { src = "https://github.com/mrcjkb/haskell-tools.nvim", version = vim.version.range("^8") },
 })
 
 require("mason").setup()
@@ -101,18 +103,17 @@ require("mason-tool-installer").setup({
         "tsgo",
         "vue_ls",
         "tailwindcss",
-        "hls",
         "ormolu",
     },
 })
 require("mini.pairs").setup()
+require("mini.pick").setup()
 require("ts-error-translator").setup()
 require("oil").setup({
     view_options = {
         show_hidden = true,
     },
 })
-require("mini.pick").setup()
 require("nvim-ts-autotag").setup()
 require("conform").setup({
     formatters_by_ft = {
@@ -149,6 +150,7 @@ local ts_parsers = {
     "html",
     "css",
     "tsx",
+    "haskell",
 }
 
 local nts = require("nvim-treesitter")

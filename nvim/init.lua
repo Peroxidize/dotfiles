@@ -104,6 +104,7 @@ require("mason-tool-installer").setup({
         "vue_ls",
         "tailwindcss",
         "ormolu",
+        "jsonls",
     },
 })
 require("mini.pairs").setup()

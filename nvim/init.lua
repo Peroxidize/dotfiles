@@ -24,15 +24,15 @@ vim.opt.smartindent = true
 vim.opt.autoindent = true
 vim.opt.updatetime = 250
 
-vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
-vim.keymap.set("n", "<leader>q", ":quit<CR>")
-vim.keymap.set("n", "<leader>w", ":write<CR>")
+vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>", { silent = true })
+vim.keymap.set("n", "<leader>q", ":quit<CR>", { silent = true })
+vim.keymap.set("n", "<leader>w", ":write<CR>", { silent = true })
 vim.keymap.set("n", "<leader>lf", vim.lsp.buf.format)
-vim.keymap.set("n", "<leader>cf", ":lua require('conform').format()<CR>")
-vim.keymap.set("n", "<leader>o", ":Oil<CR>")
-vim.keymap.set("n", "<leader>f", ":Pick files<CR>")
-vim.keymap.set("n", "<leader>g", ":Pick grep_live<CR>")
-vim.keymap.set("n", "<leader>h", ":Pick help<CR>")
+vim.keymap.set("n", "<leader>cf", ":lua require('conform').format()<CR>", { silent = true })
+vim.keymap.set("n", "<leader>o", ":Oil<CR>", { silent = true })
+vim.keymap.set("n", "<leader>f", ":Pick files<CR>", { silent = true })
+vim.keymap.set("n", "<leader>g", ":Pick grep_live<CR>", { silent = true })
+vim.keymap.set("n", "<leader>h", ":Pick help<CR>", { silent = true })
 vim.keymap.set("n", "<CR>", "m`o<Esc>``")
 vim.keymap.set("n", "<S-CR>", "m`O<Esc>``")
 vim.keymap.set("v", "y", '"+y')
@@ -40,12 +40,14 @@ vim.keymap.set("n", "<leader>y", '_vg_"+y')
 vim.keymap.set("n", "<leader>d", '_vg_"+d')
 vim.keymap.set("n", "gd", "<C-]>")
 vim.keymap.set("i", "<C-c>", "<Esc>")
-vim.keymap.set("n", "<leader>v", ":vsp<CR>")
-vim.keymap.set("n", "<leader>hh", ":vertical resize +15<CR>")
-vim.keymap.set("n", "<leader>ll", ":vertical resize -15<CR>")
+vim.keymap.set("n", "<leader>v", ":vsp<CR>", { silent = true })
+vim.keymap.set("n", "<leader>hh", ":vertical resize +15<CR>", { silent = true })
+vim.keymap.set("n", "<leader>ll", ":vertical resize -15<CR>", { silent = true })
 vim.keymap.set("n", "<leader><leader>q", ":quit!<CR>")
-vim.keymap.set("n", "<leader>cc", "aconsole.log();<ESC>hh")
+vim.keymap.set("n", "<leader>cc", "aconsole.log();<ESC>hh", { silent = true })
 vim.keymap.set("n", "<leader>r", ":restart<CR>")
+vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float)
+vim.keymap.set("n", "<F5>", ":UndotreeToggle<CR>", { silent = true })
 
 vim.diagnostic.config({ virtual_text = true })
 
@@ -83,6 +85,7 @@ vim.pack.add({
     { src = "https://github.com/vyfor/cord.nvim" },
     { src = "https://github.com/nvim-treesitter/nvim-treesitter", version = "main" },
     { src = "https://github.com/mrcjkb/haskell-tools.nvim", version = vim.version.range("^8") },
+    { src = "https://github.com/mbbill/undotree" },
 })
 
 require("mason").setup()

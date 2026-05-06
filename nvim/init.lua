@@ -86,6 +86,7 @@ vim.pack.add({
     { src = "https://github.com/nvim-treesitter/nvim-treesitter", version = "main" },
     { src = "https://github.com/mrcjkb/haskell-tools.nvim", version = vim.version.range("^8") },
     { src = "https://github.com/mbbill/undotree" },
+    { src = "https://github.com/OXY2DEV/markview.nvim" },
 })
 
 require("mason").setup()
@@ -108,6 +109,7 @@ require("mason-tool-installer").setup({
         "tailwindcss",
         "ormolu",
         "jsonls",
+        "markdown-oxide",
     },
 })
 require("mini.pairs").setup()
@@ -130,6 +132,7 @@ require("conform").setup({
         yaml = { "prettierd" },
         vue = { "prettierd" },
         haskell = { "ormolu" },
+        markdown = { "prettierd" },
     },
     format_on_save = {},
 })

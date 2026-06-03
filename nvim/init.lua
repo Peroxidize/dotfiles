@@ -110,6 +110,7 @@ require("mason-tool-installer").setup({
         "ormolu",
         "jsonls",
         "markdown-oxide",
+        "vtsls",
     },
 })
 require("mini.pairs").setup()
@@ -158,6 +159,7 @@ local ts_parsers = {
     "css",
     "tsx",
     "haskell",
+    "vue",
 }
 
 local nts = require("nvim-treesitter")
@@ -178,6 +180,33 @@ vim.api.nvim_create_autocmd("FileType", { -- enable treesitter highlighting and 
         end
     end,
 })
+
+local vue_language_server_path =
+    "/home/peroxidize/.local/share/nvim/mason/packages/vue-language-server/node_modules/@vue/language-server"
+local tsserver_filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" }
+local vue_plugin = {
+    name = "@vue/typescript-plugin",
+    location = vue_language_server_path,
+    languages = { "vue" },
+    configNamespace = "typescript",
+}
+local vtsls_config = {
+    settings = {
+        vtsls = {
+            tsserver = {
+                globalPlugins = {
+                    vue_plugin,
+                },
+            },
+        },
+    },
+    filetypes = tsserver_filetypes,
+}
+local vue_ls_config = {}
+
+vim.lsp.config("vtsls", vtsls_config)
+vim.lsp.config("vue_ls", vue_ls_config)
+vim.lsp.enable({ "vtsls", "vue_ls" })
 
 vim.cmd.colorscheme("catppuccin-frappe")
 vim.cmd(":hi statusline guibg=None")

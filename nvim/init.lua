@@ -58,13 +58,23 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 })
 
 -- Restore cursor to file position in previous editing session
-vim.api.nvim_create_autocmd("BufReadPost", {
-    callback = function(args)
-        local mark = vim.api.nvim_buf_get_mark(args.buf, '"')
-        local line_count = vim.api.nvim_buf_line_count(args.buf)
-        if mark[1] > 0 and mark[1] <= line_count then
-            vim.cmd('normal! g`"zz')
-        end
+vim.api.nvim_create_autocmd("BufRead", {
+    callback = function(opts)
+        vim.api.nvim_create_autocmd("BufWinEnter", {
+            once = true,
+            buffer = opts.buf,
+            callback = function()
+                local ft = vim.bo[opts.buf].filetype
+                local last_known_line = vim.api.nvim_buf_get_mark(opts.buf, '"')[1]
+                if
+                    not (ft:match("commit") and ft:match("rebase"))
+                    and last_known_line > 1
+                    and last_known_line <= vim.api.nvim_buf_line_count(opts.buf)
+                then
+                    vim.api.nvim_feedkeys([[g`"]], "nx", false)
+                end
+            end,
+        })
     end,
 })
 
@@ -104,7 +114,6 @@ require("mason-tool-installer").setup({
         "yamlfmt",
         "oxlint",
         "oxfmt",
-        "tsgo",
         "vue_ls",
         "tailwindcss",
         "ormolu",
